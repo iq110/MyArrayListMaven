@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="21" failures="21" name="MyArrayListTest" time="0.008" errors="0" skipped="0">
+  <properties>
+    <property name="idea.version" value="14.0.2"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_45\jre\bin"/>
+    <property name="java.vm.version" value="25.45-b02"/>
+    <property name="user.country.format" value="UA"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="M2_HOME"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="idea.launcher.port" value="7544"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="RU"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\Серега\Documents\GitHub\MyArrayListMaven"/>
+    <property name="java.runtime.version" value="1.8.0_45-b14"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_45\jre\lib\endorsed"/>
+    <property name="os.arch" value="x86"/>
+    <property name="java.io.tmpdir" value="C:\Users\EA56~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="C:\server\apache-maven-3.3.3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_45\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files\NVIDIA Corporation\PhysX\Common;C:\Program Files\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\;C:\Program Files\MySQL\MySQL Fabric 1.5 &amp; MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\Program Files\Java\jdk1.8.0_45\bin;C:\server\apache-maven-3.3.3\bin;C:\Program Files\Skype\Phone\;C:\Program Files\Git\cmd;C:\Program Files\Common Files\Acronis\SnapAPI\;C:\Program Files\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot Client Compiler"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\Серега"/>
+    <property name="user.timezone" value="Europe/Helsinki"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="idea.launcher.bin.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 14.0.2\bin"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="Серега"/>
+    <property name="java.class.path" value="C:\server\apache-maven-3.3.3\boot\plexus-classworlds-2.5.2.jar;C:\Program Files\JetBrains\IntelliJ IDEA 14.0.2\lib\idea_rt.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="32"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_45\jre"/>
+    <property name="sun.java.command" value="com.intellij.rt.execution.application.AppMain org.codehaus.classworlds.Launcher -Didea.version=14.0.2 test"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="ru"/>
+    <property name="user.language.format" value="uk"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_45"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_45\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_45\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\server\apache-maven-3.3.3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
+  </properties>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testSet" time="0.003">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testSet(MyArrayListTest.java:116)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testAddAll1" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayList.addAll(MyArrayList.java:118)
+	at MyArrayListTest.testAddAll1(MyArrayListTest.java:81)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testRemoveAll" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testRemoveAll(MyArrayListTest.java:93)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testRetainAll" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testRetainAll(MyArrayListTest.java:99)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testClear" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testClear(MyArrayListTest.java:105)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testRemove1" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testRemove1(MyArrayListTest.java:129)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testLastIndexOf" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testLastIndexOf(MyArrayListTest.java:135)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testListIterator" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testListIterator(MyArrayListTest.java:140)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testSubList" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testSubList(MyArrayListTest.java:151)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testSize" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testSize(MyArrayListTest.java:27)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testAdd" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testAdd(MyArrayListTest.java:56)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testGet" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testGet(MyArrayListTest.java:111)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testAdd1" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testAdd1(MyArrayListTest.java:122)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testIsEmpty" time="0.001">
+    <failure message="org/junit/Assert" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: org/junit/Assert
+	at MyArrayListTest.testIsEmpty(MyArrayListTest.java:33)
+Caused by: java.lang.ClassNotFoundException: org.junit.Assert
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 19 more
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testContains" time="0">
+    <failure message="org/junit/Assert" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: org/junit/Assert
+	at MyArrayListTest.testContains(MyArrayListTest.java:38)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testIterator" time="0.001">
+    <failure message="org/junit/Assert" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: org/junit/Assert
+	at MyArrayListTest.testIterator(MyArrayListTest.java:44)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testToArray" time="0">
+    <failure message="org/junit/Assert" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: org/junit/Assert
+	at MyArrayListTest.testToArray(MyArrayListTest.java:51)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testRemove" time="0.001">
+    <failure message="org/junit/Assert" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: org/junit/Assert
+	at MyArrayListTest.testRemove(MyArrayListTest.java:63)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testContainsAll" time="0">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayList.containsAll(MyArrayList.java:107)
+	at MyArrayListTest.testContainsAll(MyArrayListTest.java:68)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testAddAll" time="0.001">
+    <failure type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException
+	at java.lang.System.arraycopy(Native Method)
+	at MyArrayList.addAll(MyArrayList.java:119)
+	at MyArrayListTest.testAddAll(MyArrayListTest.java:74)
+</failure>
+  </testcase>
+  <testcase classname="MyArrayListTest" name="MyArrayListTest.testListIterator1" time="0.001">
+    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
+	at MyArrayListTest.testListIterator1(MyArrayListTest.java:145)
+</failure>
+  </testcase>
+</testsuite>

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Built-By: Серега
+Class-Path: commons-lang-2.1.jar plexus-utils-1.5.15.jar
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_45
+Main-Class: homeCompany.homeProdactions.MyArrayList
+

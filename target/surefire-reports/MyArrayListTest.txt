@@ -1,0 +1,98 @@
+-------------------------------------------------------------------------------
+Test set: MyArrayListTest
+-------------------------------------------------------------------------------
+Tests run: 21, Failures: 21, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec <<< FAILURE!
+MyArrayListTest.testSet()  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testSet(MyArrayListTest.java:116)
+
+MyArrayListTest.testAddAll1()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayList.addAll(MyArrayList.java:118)
+	at MyArrayListTest.testAddAll1(MyArrayListTest.java:81)
+
+MyArrayListTest.testRemoveAll()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testRemoveAll(MyArrayListTest.java:93)
+
+MyArrayListTest.testRetainAll()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testRetainAll(MyArrayListTest.java:99)
+
+MyArrayListTest.testClear()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testClear(MyArrayListTest.java:105)
+
+MyArrayListTest.testRemove1()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testRemove1(MyArrayListTest.java:129)
+
+MyArrayListTest.testLastIndexOf()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testLastIndexOf(MyArrayListTest.java:135)
+
+MyArrayListTest.testListIterator()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testListIterator(MyArrayListTest.java:140)
+
+MyArrayListTest.testSubList()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testSubList(MyArrayListTest.java:151)
+
+MyArrayListTest.testSize()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testSize(MyArrayListTest.java:27)
+
+MyArrayListTest.testAdd()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testAdd(MyArrayListTest.java:56)
+
+MyArrayListTest.testGet()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testGet(MyArrayListTest.java:111)
+
+MyArrayListTest.testAdd1()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testAdd1(MyArrayListTest.java:122)
+
+MyArrayListTest.testIsEmpty()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/junit/Assert
+	at MyArrayListTest.testIsEmpty(MyArrayListTest.java:33)
+Caused by: java.lang.ClassNotFoundException: org.junit.Assert
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 19 more
+
+MyArrayListTest.testContains()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/junit/Assert
+	at MyArrayListTest.testContains(MyArrayListTest.java:38)
+
+MyArrayListTest.testIterator()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/junit/Assert
+	at MyArrayListTest.testIterator(MyArrayListTest.java:44)
+
+MyArrayListTest.testToArray()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/junit/Assert
+	at MyArrayListTest.testToArray(MyArrayListTest.java:51)
+
+MyArrayListTest.testRemove()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/junit/Assert
+	at MyArrayListTest.testRemove(MyArrayListTest.java:63)
+
+MyArrayListTest.testContainsAll()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayList.containsAll(MyArrayList.java:107)
+	at MyArrayListTest.testContainsAll(MyArrayListTest.java:68)
+
+MyArrayListTest.testAddAll()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.ArrayIndexOutOfBoundsException
+	at java.lang.System.arraycopy(Native Method)
+	at MyArrayList.addAll(MyArrayList.java:119)
+	at MyArrayListTest.testAddAll(MyArrayListTest.java:74)
+
+MyArrayListTest.testListIterator1()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at MyArrayListTest.testListIterator1(MyArrayListTest.java:145)
+
