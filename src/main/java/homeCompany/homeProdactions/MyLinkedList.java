@@ -31,19 +31,21 @@ public class MyLinkedList<E> implements List<E> {
             return false;
         return true;
     }
-    //check all items from thiss about comparison with o
-    protected boolean compareAllElementsFromThiss(Object o, ListElement thiss){
-        if(thiss!=head)
-            if(!o.equals(thiss.value))
-                return compareAllElementsFromThiss(o,thiss.nextElement);
-            else return true;
-        return false;
-    }
+
 
     //has container as element as o
     @Override
     public boolean contains(Object o) {
-        return compareAllElementsFromThiss(o, head.nextElement);
+
+        if(checkObject(o) && this.size() > 0 ) {
+            ListElement el = head.nextElement;
+            for (int i = 0; i < this.size(); i++) {
+                if (!el.value.equals(o))
+                    el = el.nextElement;
+                else return true;
+            }
+        }
+        return false;
     }
 
     //return iterator of container
@@ -52,26 +54,20 @@ public class MyLinkedList<E> implements List<E> {
         return new MyListIterator();
     }
 
-    //return next element after startElement
-    protected ListElement getNextElement(ListElement startElement)
-    {
-        if(startElement!=head)
-            return startElement.nextElement;
-        return null;
-    }
-
     //Convert objectList to object[]
     @Override
     public Object[] toArray() {
-        Object [] mas = new Object[this.size()];
-        ListIterator<E> it = this.listIterator();
-        int i = 0;
-        while(it.hasNext())
-        {
-            mas[i] = it.next();
-            i++;
+        if(this.size() > 0) {
+            Object[] mas = new Object[this.size()];
+            ListIterator<E> it = this.listIterator();
+            int i = 0;
+            while (it.hasNext()) {
+                mas[i] = it.next();
+                i++;
+            }
+            return mas;
         }
-        return mas;
+        return null;
     }
 
     @Override
@@ -82,14 +78,14 @@ public class MyLinkedList<E> implements List<E> {
     //Add new element to array
     @Override
     public boolean add(E e) {
-        if(size>0) {
+        if(this.size()>0) {
             ListElement newEl = new ListElement(head.preElement, e , head);
             head.preElement.nextElement=newEl;
             head.preElement = newEl;
             size++;
             return true;
         }
-        if(size==0){
+        if(this.size()==0){
             ListElement newEl = new ListElement(head, e , head);
             head.nextElement= newEl ;
             head.preElement = newEl;
@@ -99,23 +95,25 @@ public class MyLinkedList<E> implements List<E> {
         return false;
     }
 
-    protected ListElement getFirstElementWithValue(E value, ListElement startElem){
-        if(startElem!=head)
-            if(!startElem.value.equals(value))
-                return getFirstElementWithValue(value,startElem.nextElement);
-            else return startElem;
+    protected ListElement getFirstElementWithValue(E value){
+        if(this.size()>0) {
+            ListElement el = head.nextElement;
+            for (int i = 0; i < this.size(); i++) {
+                if (!el.value.equals(value))
+                    el = el.nextElement;
+                else return el;
+            }
+        }
         return null;
     }
 
     //remove from container first element with values o
     @Override
     public boolean remove(Object o) {
-        ListElement el = getFirstElementWithValue((E)o, head);
-        if(el!=null) {
-            el.preElement.nextElement = el.nextElement;
-            el.nextElement.preElement = el.preElement;
-            this.size--;
-            return true;
+        if(checkObject(o)){
+            ListElement el = getFirstElementWithValue((E) o);
+            if (removeEl(el))
+                return true;
         }
         return false;
     }
@@ -147,10 +145,11 @@ public class MyLinkedList<E> implements List<E> {
     //Add to the array all components of c from index place
     @Override
     public boolean addAll(int index, Collection<? extends E> c) {
+
         if(!c.isEmpty()) {
-            ListIterator<E> it = (ListIterator<E>) c.iterator();
-            while (it.hasNext()) {
-                this.add(index, it.next());
+            E[] masC = (E[])c.toArray();
+            for (int i = 0; i < masC.length; i++){
+                this.add(index, masC[i]);
                 index++;
             }
             this.size+=c.size();
@@ -163,13 +162,28 @@ public class MyLinkedList<E> implements List<E> {
     @Override
     public boolean removeAll(Collection<?> c) {
         if(!c.isEmpty()) {
-            ListIterator<E> it = this.listIterator();
-            while (it.hasNext()) {
-                if (c.contains(it.next())) {
-                    it.remove();
-                    this.size--;
+            if(this.size()>0) {
+                int count = this.size();
+                ListElement el = head.nextElement;
+                for (int i = 0; i < count; i++) {
+                    if (!c.contains(el.value))
+                        el = el.nextElement;
+                    else {
+                        removeEl(el);
+                        el = el.nextElement;
+                    }
                 }
+                return true;
             }
+        }
+        return false;
+    }
+
+    protected boolean removeEl(ListElement el){
+        if(el!=head && el != null){
+            el.preElement.nextElement = el.nextElement;
+            el.nextElement.preElement = el.preElement;
+            this.size--;
             return true;
         }
         return false;
@@ -179,14 +193,19 @@ public class MyLinkedList<E> implements List<E> {
     @Override
     public boolean retainAll(Collection<?> c) {
         if(!c.isEmpty()) {
-            ListIterator<E> it = this.listIterator();
-            while (it.hasNext()) {
-                if (!c.contains(it.next())) {
-                    it.remove();
-                    this.size--;
+            if(this.size()>0) {
+                int count = this.size();
+                ListElement el = head.nextElement;
+                for (int i = 0; i < count; i++) {
+                    if (c.contains(el.value))
+                        el = el.nextElement;
+                    else {
+                        removeEl(el);
+                        el = el.nextElement;
+                    }
                 }
+                return true;
             }
-            return true;
         }
         return false;
     }
@@ -201,44 +220,64 @@ public class MyLinkedList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        if(checkIndex(index))
-            return getIndexElement(index, head.nextElement, 0).value;
+        if(checkIndex(index)) {
+            ListElement el = head.nextElement;
+            for (int i = 0; i < index; i++) {
+                el = el.nextElement;
+            }
+            return el.value;
+        }
         return null;
     }
 
     @Override
     public E set(int index, E element) {
-        if(checkIndex(index))
-            return getIndexElement(index, head.nextElement, 0).value = element;
+        if(checkIndex(index) && this.size() > 0) {
+            getElementByIndex(index).value = element;
+            return element;
+        }
         return null;
     }
 
     @Override
     public void add(int index, E element) {
         if(checkIndex(index)){
-            ListElement el = getIndexElement(index,head.nextElement,0);
-            ListElement newEl = new ListElement(el.preElement, element, el);
-            el.preElement.nextElement = newEl;
-            el.preElement = newEl;
-            this.size++;
+            if(this.size()==0){
+                ListElement el = new ListElement(head, element, head);
+                head.nextElement = el;
+                head.preElement = el;
+                this.size++;
+            }
+            else {
+                ListElement el = getElementByIndex(index);
+                ListElement newEl = new ListElement(el.preElement, element, el);
+                el.preElement.nextElement = newEl;
+                el.preElement = newEl;
+                this.size++;
+            }
         }
     }
 
     protected boolean checkIndex(int index){
-            return (index<this.size) && (index>=0);
+        if(index < 0 || (index > size()-1 && this.size()!= 0))
+            throw new IndexOutOfBoundsException();
+        return true;
     }
-    protected ListElement getIndexElement(int index, ListElement startEl, int counter){
-        if(startEl!=head)
-            if(counter!=index)
-                return getIndexElement(index, startEl.nextElement, counter+1);
-            else return startEl;
+    protected ListElement getElementByIndex(int index){
+        if(checkIndex(index) && this.size()!= 0){
+            ListElement el = head.nextElement;
+            for (int i = 0; i < index; i++) {
+                el = el.nextElement;
+            }
+            return el;
+        }
         return null;
     }
 
     @Override
     public E remove(int index) {
-        if(checkIndex(index)){
-            ListElement el = getIndexElement(index,head.nextElement,0);
+        ListElement el = getElementByIndex(index);
+        if(el!=null){
             el.nextElement.preElement = el.preElement;
             el.preElement.nextElement = el.nextElement;
             this.size--;
@@ -248,38 +287,33 @@ public class MyLinkedList<E> implements List<E> {
     }
 
 
-    protected int getFirstIndexOfElement(Object value , ListElement startElem, int counter){
-        if(startElem!=head)
-            if(!startElem.value.equals(value))
-                return getFirstIndexOfElement(value, startElem.nextElement, counter+1);
-            else return counter;
-        return -1;
-    }
-
     protected boolean checkObject(Object o){
         return o!=null;
     }
 
     @Override
     public int indexOf(Object o) {
-        if(checkObject(o)){
-            return getFirstIndexOfElement(o,head.nextElement,0);
+        if(checkObject(o) && this.size() > 0) {
+            ListElement el = head.nextElement;
+            for (int i = 0; i < this.size(); i++) {
+                if(!el.value.equals(o))
+                    el = el.nextElement;
+                else return i;
+            }
         }
         return -1;
     }
 
-    protected int getLastIndexOfElement(Object value , ListElement startElem, int counter){
-        if(startElem!=head)
-            if(!startElem.value.equals(value))
-                return getLastIndexOfElement(value, startElem.preElement, counter-1);
-            else return counter;
-        return -1;
-    }
 
     @Override
     public int lastIndexOf(Object o) {
-        if(checkObject(o)){
-            return getLastIndexOfElement(o,head.preElement,size-1);
+        if(checkObject(o) && this.size() > 0) {
+            ListElement el = head.preElement;
+            for (int i = this.size()-1; i > -1 ; i--) {
+                if(!el.value.equals(o))
+                    el = el.preElement;
+                else return i;
+            }
         }
         return -1;
     }
@@ -309,10 +343,10 @@ public class MyLinkedList<E> implements List<E> {
         if(checkIndex(fromIndex))
             if(checkIndex(toIndex)){
                 MyLinkedList<E> subList = new MyLinkedList<E>();
-                ListElement startEl = getIndexElement(fromIndex, head.nextElement, 0);
-                ListElement finishEl = getIndexElement(toIndex, head.nextElement, 0);
+                ListElement startEl = getElementByIndex(fromIndex);
+                ListElement finishEl = getElementByIndex(toIndex);
                 return getSubList(startEl,finishEl,subList);
-                }
+            }
         return null;
     }
 
@@ -349,7 +383,7 @@ public class MyLinkedList<E> implements List<E> {
         }
 
 
-}
+    }
 
     /**
      * Class created by analogy as ListIterator which is Java base
@@ -364,7 +398,7 @@ public class MyLinkedList<E> implements List<E> {
         }
 
         MyListIterator(int index){
-            this.element = getIndexElement(index,head.nextElement,0);
+            this.element = getElementByIndex(index);
             this.index = index;
         }
 
@@ -453,6 +487,7 @@ public class MyLinkedList<E> implements List<E> {
                 ListElement newEl = new ListElement(head, e, head);
                 head.nextElement = newEl;
                 head.preElement = newEl;
+                size++;
             }
         }
     }

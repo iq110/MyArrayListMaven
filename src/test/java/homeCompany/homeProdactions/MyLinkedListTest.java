@@ -130,7 +130,7 @@ public class MyLinkedListTest {
         assertEquals(111, (int)list.get(5));
     }
 
-    @Test
+    @Test(expected = java.lang.IndexOutOfBoundsException.class)
     public void testSet() throws Exception {
         list.set(123,124);
         assertFalse(list.contains(124));
@@ -163,6 +163,8 @@ public class MyLinkedListTest {
     @Test
     public void testLastIndexOf() throws Exception {
         assertEquals(3, list.lastIndexOf(3));
+        assertEquals(0, list.lastIndexOf(0));
+        assertEquals(list.size()-1, list.lastIndexOf(list.size-1));
         list.add(3);
         assertEquals(5, list.lastIndexOf(3));
         assertEquals(-1, list.lastIndexOf(222222312));

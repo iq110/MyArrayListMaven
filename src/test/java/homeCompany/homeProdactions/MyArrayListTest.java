@@ -124,7 +124,13 @@ public class MyArrayListTest {
     public void testAdd1() throws Exception {
         list.add(0,1010);
         assertEquals(1010, (int) list.get(0));
-        assertEquals(5, list.size());
+        assertTrue(list.contains(1010));
+        assertEquals(6, list.size());
+
+        list.add(list.size()-1,101);
+        assertEquals(101, (int) list.get(list.size()-1));
+        assertTrue(list.contains(101));
+        assertEquals(7, list.size());
     }
 
     @Test
